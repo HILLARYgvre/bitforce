@@ -12,11 +12,11 @@ class App extends BaseConfig
      * --------------------------------------------------------------------------
      *
      * URL to your CodeIgniter root. Typically, this will be your base URL,
-     * WITH a trailing slash:
+     * with a trailing slash:
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    public string $baseURL = 'https://bitforce-alpha.vercel.app/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -91,7 +91,7 @@ class App extends BaseConfig
      * The Locale roughly represents the language and location that your visitor
      * is viewing the site from. It affects the language strings and other
      * strings (like currency markers, numbers, etc), that your program
-     * should run under for this request.
+     * uses.
      */
     public string $defaultLocale = 'en';
 
@@ -101,7 +101,7 @@ class App extends BaseConfig
      * --------------------------------------------------------------------------
      *
      * If true, the current Request object will automatically determine the
-     * language to use based on the value of the Accept-Language header.
+     * language to use based on the Accept-Language header.
      *
      * If false, no automatic detection will be performed.
      */
@@ -128,7 +128,7 @@ class App extends BaseConfig
      * --------------------------------------------------------------------------
      *
      * The default timezone that will be used in your application to display
-     * dates with the date helper, and can be retrieved through app_timezone()
+     * dates with the date helper and can be retrieved through app_timezone().
      *
      * @see https://www.php.net/manual/en/timezones.php for list of timezones
      *      supported by PHP.
@@ -166,8 +166,8 @@ class App extends BaseConfig
      *
      * If your server is behind a reverse proxy, you must whitelist the proxy
      * IP addresses from which CodeIgniter should trust headers such as
-     * X-Forwarded-For or Client-IP in order to properly identify
-     * the visitor's IP address.
+     * X-Forwarded-For or Client-IP in order to properly identify the
+     * visitor's IP address.
      *
      * You need to set a proxy IP address or IP address with subnets and
      * the HTTP header for the client IP address.
@@ -187,16 +187,11 @@ class App extends BaseConfig
      * Content Security Policy
      * --------------------------------------------------------------------------
      *
-     * Enables the Response's Content Secure Policy to restrict the sources that
+     * Enables the Response's Content Security Policy to restrict the sources that
      * can be used for images, scripts, CSS files, audio, video, etc. If enabled,
      * the Response object will populate default values for the policy from the
      * `ContentSecurityPolicy.php` file. Controllers can always add to those
      * restrictions at run time.
-     *
-     * For a better understanding of CSP, see these documents:
-     *
-     * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-     * @see http://www.w3.org/TR/CSP/
      */
     public bool $CSPEnabled = false;
 }
