@@ -1,12 +1,39 @@
 <?php
 
-/**
- * CodeIgniter front controller for Vercel.
- *
- * This boots the framework from the project root and lets CodeIgniter
- * handle the request routing.
+/*
+ *---------------------------------------------------------------
+ * CHECK PHP VERSION
+ *---------------------------------------------------------------
  */
+$minPhpVersion = '8.1';
+if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
+    $message = sprintf(
+        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
+        $minPhpVersion,
+        PHP_VERSION
+    );
+    http_response_code(503);
+    echo $message;
+    exit(1);
+}
 
-$_SERVER['CI_ENVIRONMENT'] ??= 'production';
+/*
+ *---------------------------------------------------------------
+ * SET THE CURRENT DIRECTORY
+ *---------------------------------------------------------------
+ */
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+chdir(FCPATH);
 
-require dirname(__DIR__) . '/vendor/codeigniter4/framework/system/bootstrap.php';
+/*
+ *---------------------------------------------------------------
+ * BOOTSTRAP THE APPLICATION
+ *---------------------------------------------------------------
+ */
+require FCPATH . '../app/Config/Paths.php';
+
+$paths = new Config\Paths();
+
+require $paths->systemDirectory . '/Boot.php';
+
+exit(CodeIgniter\Boot::bootWeb($paths));
